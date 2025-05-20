@@ -1,7 +1,10 @@
 package me.gabryosas.util;
 
+import me.gabryosas.util.argomenti.Donne;
 import me.gabryosas.util.object.Domande;
 import me.gabryosas.util.object.Risposte;
+
+import java.net.URL;
 
 public class Argomento {
     protected Domande domande;
@@ -15,5 +18,12 @@ public class Argomento {
     }
     public Risposte getRisposte(){
         return this.risposte;
+    }
+    public static String getPath(String resourcePath) {
+        URL resource = Donne.class.getResource(resourcePath);
+        if (resource == null) {
+            throw new IllegalArgumentException("File non trovato: " + resourcePath);
+        }
+        return resource.getPath();
     }
 }

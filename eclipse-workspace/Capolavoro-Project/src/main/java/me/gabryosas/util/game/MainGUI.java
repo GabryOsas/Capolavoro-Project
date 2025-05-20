@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class MainGUI extends JFrame {
 
@@ -23,7 +24,7 @@ public class MainGUI extends JFrame {
 	private JPanel contentPane;
 	
 	public MainGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Utente\\eclipse-workspace\\Capolavoro-Project\\src\\main\\resources\\main-icon.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/main-icon.jpg")));
 		setTitle("Educazione Civica QUIZ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -48,7 +49,7 @@ public class MainGUI extends JFrame {
 		contentPane.add(lbl_subtitle);
 		
 		JButton btn_play = new JButton("GIOCA");
-		btn_play.setIcon(new ImageIcon("C:\\Users\\Utente\\eclipse-workspace\\Capolavoro-Project\\src\\main\\resources\\play-icon.png"));
+		btn_play.setIcon(new ImageIcon(getClass().getResource("/play-icon.png")));
 		btn_play.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
@@ -56,7 +57,7 @@ public class MainGUI extends JFrame {
 		contentPane.add(btn_play);
 		
 		JButton btn_quit = new JButton("CHIUDI");
-		btn_quit.setIcon(new ImageIcon("C:\\Users\\Utente\\eclipse-workspace\\Capolavoro-Project\\src\\main\\resources\\quit-icon.png"));
+		btn_quit.setIcon(new ImageIcon(getClass().getResource("/quit-icon.png")));
 		btn_quit.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		btn_quit.addActionListener(new ActionListener() { 
