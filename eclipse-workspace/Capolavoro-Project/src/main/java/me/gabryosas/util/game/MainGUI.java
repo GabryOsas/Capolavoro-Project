@@ -3,6 +3,9 @@ package me.gabryosas.util.game;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import me.gabryosas.Main;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -59,6 +62,15 @@ public class MainGUI extends JFrame {
 		btn_quit.addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 				  dispose();
+			 } 
+		});
+		
+		btn_play.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+				  Main.OPEN[0] = false;
+				  dispose();
+				  SoundUtil.stopAllSounds();
+				  KahootGUI gui = new KahootGUI();
 			 } 
 		});
 		

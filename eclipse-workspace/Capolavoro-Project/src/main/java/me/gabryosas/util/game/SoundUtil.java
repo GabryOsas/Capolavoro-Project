@@ -2,6 +2,9 @@ package me.gabryosas.util.game;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
+
+import me.gabryosas.Main;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -32,17 +35,17 @@ public class SoundUtil {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        if (path.equalsIgnoreCase(ObjectUtil.BACKGROUND_MUSIC_PATH.getString())) {
+                        if (path.equalsIgnoreCase(ObjectUtil.BACKGROUND_MUSIC_PATH.getString()) && Main.OPEN[0]) {
                         	playSound(ObjectUtil.BACKGROUND_MUSIC_PATH.getString());
                         }
-                        if (path.equalsIgnoreCase(ObjectUtil.FINAL_MUSIC_PATH.getString())) {
+                        if (path.equalsIgnoreCase(ObjectUtil.FINAL_MUSIC_PATH.getString()) && Main.OPEN[1]) {
                         	playSound(ObjectUtil.FINAL_MUSIC_PATH.getString());
                         }
                     }
                 });
 
                 clip.start();
-
+                	
             } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
                 e.printStackTrace();
             }

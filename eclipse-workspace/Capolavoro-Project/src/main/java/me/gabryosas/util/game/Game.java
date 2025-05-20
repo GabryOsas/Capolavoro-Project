@@ -25,7 +25,7 @@ public class Game {
 				this.argomento = "Mafia";
 				break;
 			case 1:
-				this.argomento = "Mafia";
+				this.argomento = "Violenza";
 				break;
 			default:
 				break;
@@ -41,7 +41,7 @@ public class Game {
 	}
 	
 	public List<String> getAnswers() {
-		return argomento.equalsIgnoreCase("Mafia") ? mafia.getRisposte().getRisposte(index + 1) : mafia.getRisposte().getRisposte(index + 1);
+		return argomento.equalsIgnoreCase("Mafia") ? mafia.getRisposte().getRisposte(index + 1) : donne.getRisposte().getRisposte(index + 1);
 	}
 	
     public Argomento getArgomento() {

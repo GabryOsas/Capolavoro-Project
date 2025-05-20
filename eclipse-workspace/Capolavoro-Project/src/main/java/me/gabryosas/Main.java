@@ -15,8 +15,9 @@ import me.gabryosas.util.game.SoundUtil;
 
 public class Main {
 	
+	public static boolean[] OPEN = {true, false};
+	
     public static void main(String[] args){
-    	Mafia mafia = new Mafia();
     	MainGUI game = new MainGUI();
     	game.setVisible(true);
         SoundUtil.playSound(ObjectUtil.BACKGROUND_MUSIC_PATH.getString());
