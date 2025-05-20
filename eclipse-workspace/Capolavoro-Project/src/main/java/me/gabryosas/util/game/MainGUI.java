@@ -24,7 +24,7 @@ public class MainGUI extends JFrame {
 	private JPanel contentPane;
 	
 	public MainGUI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/main-icon.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/main-icon.jpg")));
 		setTitle("Educazione Civica QUIZ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
