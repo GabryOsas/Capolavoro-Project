@@ -3,6 +3,8 @@ package me.gabryosas.util.game;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import me.gabryosas.Main;
+
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -15,13 +17,16 @@ public class SoundUtil {
     public static void playSound(final String resourcePath) {
         new Thread(() -> {
             try {
-                InputStream audioStream = SoundUtil.class.getResourceAsStream(resourcePath);
-                if (audioStream == null) {
+                InputStream rawStream = SoundUtil.class.getResourceAsStream(resourcePath);
+                if (rawStream == null) {
                     System.err.println("Risorsa audio non trovata: " + resourcePath);
                     return;
                 }
 
+                BufferedInputStream audioStream = new BufferedInputStream(rawStream);
+
                 AudioInputStream audioIn = AudioSystem.getAudioInputStream(audioStream);
+
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioIn);
                 activeClips.add(clip);

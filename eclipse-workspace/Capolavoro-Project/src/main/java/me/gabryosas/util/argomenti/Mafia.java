@@ -4,9 +4,6 @@ import me.gabryosas.util.Argomento;
 
 public class Mafia extends Argomento {
     public Mafia() {
-        super(
-                getPath("/domande/mafia.txt"),
-                getPath("/risposte/mafia.txt")
-        );
+        super("/domande/mafia.txt", "/risposte/mafia.txt");
     }
 }

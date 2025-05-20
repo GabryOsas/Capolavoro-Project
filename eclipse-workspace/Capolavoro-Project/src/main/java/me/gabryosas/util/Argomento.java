@@ -9,21 +9,17 @@ import java.net.URL;
 public class Argomento {
     protected Domande domande;
     protected Risposte risposte;
-    public Argomento(String path_domande, String path_risposte){
+
+    public Argomento(String path_domande, String path_risposte) {
         this.domande = new Domande(path_domande);
         this.risposte = new Risposte(path_risposte);
     }
-    public Domande getDomande(){
+
+    public Domande getDomande() {
         return this.domande;
     }
-    public Risposte getRisposte(){
+
+    public Risposte getRisposte() {
         return this.risposte;
-    }
-    public static String getPath(String resourcePath) {
-        URL resource = Donne.class.getResource(resourcePath);
-        if (resource == null) {
-            throw new IllegalArgumentException("File non trovato: " + resourcePath);
-        }
-        return resource.getPath();
     }
 }

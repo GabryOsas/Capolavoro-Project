@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Capolavoro-Project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Capolavoro_Project_jar</output-path>
+    <root id="archive" name="Capolavoro-Project.jar">
+      <element id="module-output" name="Capolavoro-Project" />
+    </root>
+  </artifact>
+</component>

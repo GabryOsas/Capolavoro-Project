@@ -6,6 +6,8 @@ import me.gabryosas.util.game.MainGUI;
 import me.gabryosas.util.game.ObjectUtil;
 import me.gabryosas.util.game.SoundUtil;
 
+import java.net.URL;
+
 
 /* IMPORTANTE - GabryOsas
     - Le domande iniziano sempre da 1 IMPORTANTE
@@ -14,9 +16,8 @@ import me.gabryosas.util.game.SoundUtil;
  */
 
 public class Main {
-	
 	public static boolean[] OPEN = {true, false};
-	
+
     public static void main(String[] args){
     	MainGUI game = new MainGUI();
     	game.setVisible(true);

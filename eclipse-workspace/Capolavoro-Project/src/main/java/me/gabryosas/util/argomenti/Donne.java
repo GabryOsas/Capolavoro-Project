@@ -6,9 +6,6 @@ import java.net.URL;
 
 public class Donne extends Argomento {
     public Donne() {
-        super(
-                getPath("/domande/donne.txt"),
-                getPath("/risposte/donne.txt")
-        );
+        super("/domande/donne.txt", "/risposte/donne.txt");
     }
 }
