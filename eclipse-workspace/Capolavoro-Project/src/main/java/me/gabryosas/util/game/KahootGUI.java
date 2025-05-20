@@ -46,25 +46,25 @@ public class KahootGUI extends JFrame implements ActionListener{
 	 */
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private ScheduledFuture<?> timeoutTask;
-    private boolean isShutdown = false; 
-    
-	
+    private boolean isShutdown = false;
+
+
 	public KahootGUI() {
-		
+
 		this.game = new Game();
-		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Utente\\eclipse-workspace\\Capolavoro-Project\\src\\main\\resources\\main-icon.jpg"));
+
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/main-icon.jpg")));
 		setTitle("Educazione Civica QUIZ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 350);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));	
-		
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		lbl_final = new JLabel("DOMANDA FINALE");
 		lbl_final.setIcon(null);
 		lbl_final.setHorizontalAlignment(SwingConstants.CENTER);
@@ -73,28 +73,28 @@ public class KahootGUI extends JFrame implements ActionListener{
 		lbl_final.setBounds(70, 0, 299, 30);
 		lbl_final.setVisible(false);
 		contentPane.add(lbl_final);
-		
+
 		lbl_question_index = new JLabel(String.valueOf(game.getDomande()));
-		lbl_question_index.setIcon(new ImageIcon("C:\\Users\\Utente\\eclipse-workspace\\Capolavoro-Project\\src\\main\\resources\\question.png"));
+		lbl_question_index.setIcon(new ImageIcon(getClass().getResource("/question.png")));
 		lbl_question_index.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_question_index.setForeground(Color.BLACK);
 		lbl_question_index.setFont(new Font("Arial", Font.BOLD, 16));
 		lbl_question_index.setBounds(354, 0, 29, 30);
 		contentPane.add(lbl_question_index);
-		
+
 		lbl_life = new JLabel(String.valueOf(game.getLife()));
-		lbl_life.setIcon(new ImageIcon("C:\\Users\\Utente\\eclipse-workspace\\Capolavoro-Project\\src\\main\\resources\\vita.png"));
+		lbl_life.setIcon(new ImageIcon(getClass().getResource("/vita.png")));
 		lbl_life.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_life.setForeground(Color.BLACK);
 		lbl_life.setFont(new Font("Arial", Font.BOLD, 16));
 		lbl_life.setBounds(395, 0, 29, 30);
 		contentPane.add(lbl_life);
-		
+
 		lbl_question = new JTextArea(game.getQuestion()) {
-		    @Override
-		    public boolean contains(int x, int y) {
-		        return false;
-		    }
+			@Override
+			public boolean contains(int x, int y) {
+				return false;
+			}
 		};
 		lbl_question.setLineWrap(true);
 		lbl_question.setWrapStyleWord(true);
@@ -105,15 +105,15 @@ public class KahootGUI extends JFrame implements ActionListener{
 		lbl_question.setFont(new Font("Arial", Font.BOLD, 20));
 		lbl_question.setBounds(32, 23, 414, 100);
 		contentPane.add(lbl_question);
-		
+
 		Caret caret = lbl_question.getCaret();
 		caret.setVisible(false);
 		if (caret instanceof DefaultCaret) {
-		    ((DefaultCaret) caret).setBlinkRate(0);
+			((DefaultCaret) caret).setBlinkRate(0);
 		}
 
 		lbl_question.setCaretPosition(0);
-		
+
 		btn_red = new JButton("<html><body>" + game.getArgomento().getRisposte().format(game.getAnswers().get(0)) + "</body></html>");
 		btn_red.setVerticalAlignment(SwingConstants.TOP);
 		btn_red.setBackground(new Color(255, 0, 60));
@@ -122,25 +122,25 @@ public class KahootGUI extends JFrame implements ActionListener{
 		btn_red.setFocusable(false);
 		btn_red.setBounds(89, 71, 100, 100);
 		contentPane.add(btn_red);
-		
+
 		btn_blue = new JButton("<html><body>" + game.getArgomento().getRisposte().format(game.getAnswers().get(1))+ "</body></html>");
 		btn_blue.setVerticalAlignment(SwingConstants.TOP);
 		btn_blue.setBackground(new Color(26, 100, 173));
 		btn_blue.setOpaque(true);
 		btn_blue.setBorderPainted(false);
 		btn_blue.setFocusable(false);
-		btn_blue.setBounds(244, 71, 100, 100);;
+		btn_blue.setBounds(244, 71, 100, 100);
 		contentPane.add(btn_blue);
-		
+
 		btn_yellow = new JButton("<html><body>" + game.getArgomento().getRisposte().format(game.getAnswers().get(2)) + "</body></html>");
 		btn_yellow.setVerticalAlignment(SwingConstants.TOP);
 		btn_yellow.setBackground(new Color(245, 158, 0));
 		btn_yellow.setOpaque(true);
 		btn_yellow.setBorderPainted(false);
 		btn_yellow.setFocusable(false);
-		btn_yellow.setBounds(89, 182, 100, 100);;
+		btn_yellow.setBounds(89, 182, 100, 100);
 		contentPane.add(btn_yellow);
-		
+
 		btn_green = new JButton("<html><body>" + game.getArgomento().getRisposte().format(game.getAnswers().get(3)) + "</body></html>");
 		btn_green.setVerticalAlignment(SwingConstants.TOP);
 		btn_green.setBackground(new Color(0, 139, 58));
@@ -149,7 +149,7 @@ public class KahootGUI extends JFrame implements ActionListener{
 		btn_green.setFocusable(false);
 		btn_green.setBounds(244, 182, 100, 100);
 		contentPane.add(btn_green);
-		
+
 		btn_red.addActionListener(this);
 		btn_blue.addActionListener(this);
 		btn_yellow.addActionListener(this);
@@ -157,7 +157,7 @@ public class KahootGUI extends JFrame implements ActionListener{
 		setVisible(true);
 
 		SoundUtil.playSound(ObjectUtil.MUSIC_PATH.getString());
-		
+
 		start();
 	}
 	
